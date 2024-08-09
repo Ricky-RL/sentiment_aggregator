@@ -19,9 +19,6 @@ df = df.head(20)  # Keep only the first 10 lines
 # Apply text preprocessing
 df['reviewText'] = df['reviewText'].apply(preprocess_text)
 
-# Display the processed DataFrame
-print(df.head())
-
 # Main function
 def main():
     print("Starting sentiment analysis...")
