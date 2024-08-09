@@ -5,8 +5,6 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 
-# Load the dataset
-df = pd.read_csv('https://raw.githubusercontent.com/pycaret/pycaret/master/datasets/amazon.csv')
 
 # Define the preprocess_text function
 def preprocess_text(text):
@@ -23,4 +21,12 @@ def preprocess_text(text):
     # Join the tokens back into a string
     processed_text = ' '.join(lemmatized_tokens)
     return processed_text
+
+
+# def get_sentiment(text):
+#     analyzer = SentimentIntensityAnalyzer
+#     scores = analyzer.polarity_scores(text)
+#     sentiment = 1 if scores['pos'] > 0 else 0
+
+#     return sentiment
 
