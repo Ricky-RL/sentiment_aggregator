@@ -4,7 +4,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
-from sentiment_analyzer import preprocess_text  # Import both functions
+from sentiment_analyzer import preprocess_text, get_sentiment  # Import both functions
 
 # Download required NLTK resources
 nltk.download('punkt')
@@ -21,15 +21,6 @@ df['reviewText'] = df['reviewText'].apply(preprocess_text)
 
 # Display the processed DataFrame
 print(df.head())
-
-# Define the get_sentiment function
-def get_sentiment(text):
-    analyzer = SentimentIntensityAnalyzer()  # Initialize the analyzer here
-    scores = analyzer.polarity_scores(text)
-
-    sentiment = 1 if scores['pos'] > scores['neg'] else 0  # Basic sentiment logic: positive or negative
-
-    return sentiment
 
 # Main function
 def main():

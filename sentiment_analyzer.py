@@ -23,10 +23,11 @@ def preprocess_text(text):
     return processed_text
 
 
-# def get_sentiment(text):
-#     analyzer = SentimentIntensityAnalyzer
-#     scores = analyzer.polarity_scores(text)
-#     sentiment = 1 if scores['pos'] > 0 else 0
+def get_sentiment(text):
+    analyzer = SentimentIntensityAnalyzer()  # Initialize the analyzer here
+    scores = analyzer.polarity_scores(text)
 
-#     return sentiment
+    sentiment = 1 if scores['pos'] > scores['neg'] else 0  # Basic sentiment logic: positive or negative
+
+    return sentiment
 
